@@ -13,6 +13,8 @@ public class GameMain extends JPanel {
 
     public GameMain(){
 
+        man = new Guy(5,5,theWorld);
+
         theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
 
         //These are the Sprites that are added to the World...
