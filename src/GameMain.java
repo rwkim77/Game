@@ -109,7 +109,7 @@ public class GameMain extends JPanel {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setBounds(0, 0, FRAMEWIDTH, FRAMEHEIGHT + 22); //(x, y, w, h) 20 due to title bar.
 
-        Main panel = new Main();
+        GameMain panel = new GameMain();
         panel.setSize(FRAMEWIDTH, FRAMEHEIGHT);
 
         panel.setFocusable(true);
