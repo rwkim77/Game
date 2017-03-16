@@ -3,11 +3,11 @@ import java.util.ArrayList;
 /**
  * Created by ryan_kim on 4/16/17
  */
-public class Chaser extends Sprite {
+public class Zombie extends Sprite {
 
     private Sprite target;
 
-    public Chaser(int x, int y, World world) {
+    public Zombie(int x, int y, World world) {
         super(x, y, EAST, world);
 
         ArrayList<Sprite> sprites = world.getAllSprites();
