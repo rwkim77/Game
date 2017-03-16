@@ -13,7 +13,7 @@ public class GameMain extends JPanel {
 
     public GameMain(){
 
-        man = new Guy(190, 100 ,theWorld);
+        man = new Guy(180, 100 ,theWorld);
 
         theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
 
