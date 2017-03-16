@@ -5,7 +5,7 @@ public class Guy extends Sprite{
 
     public Guy(int x, int y, World aWorld){
         super(x, y,EAST, aWorld);
-        setPic("player-topdown.png", NORTH);
+        setPic("bugpic.png", NORTH);
         setSpeed(10);
     }
 

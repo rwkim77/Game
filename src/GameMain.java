@@ -8,9 +8,13 @@ public class GameMain extends JPanel {
 
     private Timer timer;
     private World theWorld;
+    private boolean[] keys;
+    private Sprite man;
 
     public GameMain(){
 
+        man = new Guy(180, 100 ,theWorld);
+        System.out.println("hi");
         theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
 
         //These are the Sprites that are added to the World...
@@ -20,12 +24,34 @@ public class GameMain extends JPanel {
             int y = (int)(Math.random()*400 + 50);
 
         }
-
+//
 
 
         timer = new Timer(40, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+
+                if(keys[KeyEvent.VK_W]){
+                    man.setDir(Sprite.NORTH);
+                    man.update();
+                    keys[KeyEvent.VK_W] = false; //probably.
+
+                }
+                if(keys[KeyEvent.VK_D]) {
+                    man.setDir(Sprite.EAST);
+                    man.update();
+                    keys[KeyEvent.VK_D] = false;
+                }
+                if(keys[KeyEvent.VK_S]) {
+                    man.setDir(Sprite.SOUTH);
+                    man.update();
+                    keys[KeyEvent.VK_S] = false;
+                }
+                if(keys[KeyEvent.VK_A]) {
+                    man.setDir(Sprite.WEST);
+                    man.update();
+                    keys[KeyEvent.VK_A] = false;
+                }
 
                 //This will call update on each sprite.
                 theWorld.updateSprites();
