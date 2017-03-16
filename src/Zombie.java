@@ -15,7 +15,7 @@ public class Zombie extends Sprite {
         while(target.equals(this) && sprites.size() > 1){
             target = sprites.get( (int)(Math.random()*sprites.size()) );
         }
-        setPic("scorpion.png", NORTH);
+        setPic("zombie.png", NORTH);
         setSpeed(10);
     }
 
