@@ -24,7 +24,6 @@ public class GameMain extends JPanel {
             int y = (int)(Math.random()*400 + 50);
 
         }
-//
 
 
         timer = new Timer(40, new ActionListener() {
