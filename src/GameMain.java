@@ -11,19 +11,15 @@ public class GameMain extends JPanel {
     private boolean[] keys;
     private Sprite man;
 
-    public GameMain(){
+    public GameMain() {
         keys = new boolean[512];
 
-        man = new Guy(180, 100 ,theWorld);
+
         theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
 
         //These are the Sprites that are added to the World...
-        for (int i = 0; i < 1; i++) {
-            int rand = (int)(Math.random()*3);
-            int x = (int)(Math.random()*400 + 50);
-            int y = (int)(Math.random()*400 + 50);
+        theWorld.addSprite(new Guy(100, 100, theWorld));
 
-        }
 
 
         timer = new Timer(40, new ActionListener() {

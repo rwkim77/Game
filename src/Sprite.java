@@ -24,21 +24,12 @@ public class Sprite {
     public static final int NORTH = 90, SOUTH = 270, WEST = 180, EAST = 0, NE = 45, NW = 135, SW = 225, SE = 315;
 
     //Constructors.
-    public Sprite(World world) {
-        loc = new Point(0, 0);
-        dir = EAST;
-        setPic("zombieback.png", NORTH);
-        myWorld = world;
-        speed = 5;
 
-        id = nextID;
-        nextID++;
-    }
 
     public Sprite(int x, int y, int direction, World world) {
         loc = new Point(x, y);
         dir = direction;
-        setPic("zombieback.png", NORTH);
+        setPic("blank.png", NORTH);
         myWorld = world;
         speed = 5;
 
@@ -49,7 +40,7 @@ public class Sprite {
     public Sprite(Point location, int direction, World world) {
         loc = location;
         dir = direction;
-        setPic("zombieback.png", NORTH);
+        setPic("blank.png", NORTH);
         myWorld = world;
         speed = 5;
 

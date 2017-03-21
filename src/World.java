@@ -5,22 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
-/**
- * Version 1.2
- *      Added clicking. When a Sprite is clicked, its onClick is called.
- *          If the click is 2-finger, the Sprite is removed.
- *
- *
- * Version 1.1
- *      adds background (WORKS)
- *      adds method to remove sprites from the world (WORKS)
- *
- * Created by michael_hopps on 1/6/16.
- *
- * A World keeps track of the plane on which the Sprites live.
- * It also is where the list of Sprites resides.
- * All addition of Sprites and removal of Sprites should be done through this class.
- */
+
 public class World {
 
     private ArrayList<Sprite> sprites;
