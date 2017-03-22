@@ -4,8 +4,8 @@
 public class Guy extends Sprite{
 
     public Guy(){
-        super(500, 400, NORTH);
-        setPic("zombieback.png", NORTH);
+        super(470, 250, NORTH);
+        setPic("playerup.png", NORTH);
         setSpeed(this.getBoundingRectangle().height);
     }
 
