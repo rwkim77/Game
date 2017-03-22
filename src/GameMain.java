@@ -7,13 +7,15 @@ public class GameMain extends JPanel {
     public static final int FRAMEWIDTH = 1000, FRAMEHEIGHT = 600;
 
     private Timer timer;
-    private World theWorld;
-    private Sprite guy;
     private boolean[] keys;
+    private Sprite guy;
+    private World theWorld;
+
 
     public GameMain(){
 
-        theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
+        keys = new boolean[512];
+
 
         guy = new Guy();
 
@@ -45,7 +47,6 @@ public class GameMain extends JPanel {
                 }
 
                 //This will call update on each sprite.
-                theWorld.updateSprites();
                 repaint();
 
                 }
