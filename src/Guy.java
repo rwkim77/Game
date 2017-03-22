@@ -4,9 +4,9 @@
 public class Guy extends Sprite{
 
     public Guy(int x, int y, World aWorld){
-        super(x, y,EAST, aWorld);
-        setPic("BabyPic.png", NORTH);
-        setSpeed(10);
+        super(x, y,NORTH, aWorld);
+        setPic("playerup.png", NORTH);
+        setSpeed(this.getBoundingRectangle().height);
     }
 
     @Override
