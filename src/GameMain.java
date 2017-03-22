@@ -27,21 +27,25 @@ public class GameMain extends JPanel {
 
                 if (keys[KeyEvent.VK_W]) {
                     guy.setDir(Sprite.NORTH);
+                    guy.setPic("zombieback.png", Sprite.NORTH);
                     guy.update();
                     keys[KeyEvent.VK_W] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_A]) {
                     guy.setDir(Sprite.WEST);
+                    guy.setPic("zombiebleft.png", Sprite.WEST);
                     guy.update();
                     keys[KeyEvent.VK_A] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_D]) {
                     guy.setDir(Sprite.EAST);
+                    guy.setPic("zombieright.png", Sprite.EAST);
                     guy.update();
                     keys[KeyEvent.VK_D] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_S]) {
                     guy.setDir(Sprite.SOUTH);
+                    guy.setPic("zombiefront.png", Sprite.SOUTH);
                     guy.update();
                     keys[KeyEvent.VK_S] = false; //probably.
                 }
