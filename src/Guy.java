@@ -6,7 +6,7 @@ public class Guy extends Sprite{
     public Guy(){
         super(470, 250, NORTH);
         setPic("playerup.png", NORTH);
-        setSpeed(this.getBoundingRectangle().height);
+        setSpeed(this.getBoundingRectangle().height / 2);
     }
 
     @Override
