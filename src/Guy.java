@@ -3,14 +3,16 @@
  */
 public class Guy extends Sprite{
 
-    public Guy(int x, int y, World aWorld){
-        super(x, y,EAST, aWorld);
-        setPic("BabyPic.png", NORTH);
+    public Guy(){
+        super(500, 400, NORTH);
+        setPic("zombieback.png", NORTH);
         setSpeed(10);
     }
 
     @Override
     public void update(){
+        super.update();
+
 
     }
 }
