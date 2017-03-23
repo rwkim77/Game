@@ -17,6 +17,7 @@ public class Sprite {
     private BufferedImage pic; //put the file in the res folder.
     private int speed; //Number of pixels moved each frame.
     private int id;
+    private World myWorld;
     public static final int NORTH = 90, SOUTH = 270, WEST = 180, EAST = 0, NE = 45, NW = 135, SW = 225, SE = 315;
 
 
@@ -67,6 +68,12 @@ public class Sprite {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public World getWorld() {
+        return myWorld;
+    }
+    public void setMyWorld(World myWorld) {
+        this.myWorld = myWorld;
     }
 
     /**

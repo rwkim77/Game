@@ -16,8 +16,11 @@ public class GameMain extends JPanel {
 
         keys = new boolean[512];
 
+        theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
 
-        guy = new Guy();
+        theWorld.addSprite(new Guy());
+
+        theWorld.addSprite(new Chaser(10, 10, theWorld));
 
 
 
@@ -82,6 +85,7 @@ public class GameMain extends JPanel {
         Graphics2D g2 = (Graphics2D)g;
 
         guy.draw(g2);
+
 
         //draw all the things.
 //        for(Sprite s: obstacles){

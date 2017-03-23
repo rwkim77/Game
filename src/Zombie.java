@@ -1,45 +1,43 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Created by ryan_kim on 4/16/17
+ * Created by michael_hopps on 2/6/17.
  */
-public class Zombie extends Sprite {
+public class Zombie extends Chaser {
 
-    private Sprite target;
+    public Zombie(int x, int y, World w){
+        super(x, y, w); //should pick target and stuff.
+        setPic("zombie.png", EAST);
 
-    public Zombie(int x, int y, World world) {
-        super(x, y, EAST);
-
-        ArrayList<Sprite> sprites = world.getAllSprites();
-        target = sprites.get( (int)(Math.random()*sprites.size()) );
-        while(target.equals(this) && sprites.size() > 1){
-            target = sprites.get( (int)(Math.random()*sprites.size()) );
-        }
-        setPic("zombieback.png", NORTH);
-        setSpeed(10);
+        if (getDir() == NORTH)
+            setPic("zombieback.png", NORTH);
+        if (getDir() == EAST)
+            setPic("zombieright.png", EAST);
+        if (getDir() == SOUTH)
+            setPic("zombiefront.png", SOUTH);
+        if (getDir() == WEST)
+            setPic("zombieleft.png", WEST);
     }
 
-//
-//    public void update(){
-//        int d = getWorld().getDirection(this.get    @OverrideLoc(), target.getLoc());
-//        setDir(d);
-//
-//        super.update();
-//    }
-//
-//    public Sprite getTarget(){
-//        return target;
-//    }
-//    public void setTarget(Sprite newTarget){
-//        target = newTarget;
-//    }
-//
-//    public void pickTarget(){
-//        ArrayList<Sprite> sprites = getWorld().getAllSprites();
-//        target = sprites.get( (int)(Math.random()*sprites.size()) );
-//        while(target.equals(this) && sprites.size() > 1){
-//            target = sprites.get( (int)(Math.random()*sprites.size()) );
-//        }
-//    }
+    @Override
+    public void update(){
 
+        if(!getTarget().equals(this) && !(getTarget() instanceof Zombie) && getTarget().intersects(this)){ //caught target
+            Point loc = getTarget().getLoc(); //target's loc
+            getWorld().removeSprite(getTarget()); //remove old target
+            Chaser zombie = new Zombie(loc.x, loc.y, getWorld());
+            getWorld().addSprite(zombie); //replace old target with zombie
+
+            //pick new target.  copied and pasted from Chaser constructor
+            pickTarget();
+        }
+
+        if(getTarget() instanceof Zombie){
+            setTarget(this);
+//            pickTarget();
+        }
+
+        super.update();
+    }
 }
