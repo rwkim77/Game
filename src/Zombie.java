@@ -8,7 +8,7 @@ public class Zombie extends Chaser {
 
     public Zombie(int x, int y, World w){
         super(x, y, w); //should pick target and stuff.
-        setPic("zombie.png", EAST);
+        setPic("zombieright.png", EAST);
 
         if (getDir() == NORTH)
             setPic("zombieback.png", NORTH);

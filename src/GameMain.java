@@ -20,7 +20,7 @@ public class GameMain extends JPanel {
 
         theWorld.addSprite(new Guy());
 
-        theWorld.addSprite(new Chaser(10, 10, theWorld));
+        theWorld.addSprite(new Zombie(10, 10, theWorld));
 
 
 
@@ -30,25 +30,25 @@ public class GameMain extends JPanel {
 
                 if (keys[KeyEvent.VK_W]) {
                     guy.setDir(Sprite.NORTH);
-                    guy.setPic("zombieback.png", Sprite.NORTH);
+                    guy.setPic("playerup.png", Sprite.NORTH);
                     guy.update();
                     keys[KeyEvent.VK_W] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_A]) {
                     guy.setDir(Sprite.WEST);
-                    guy.setPic("zombiebleft.png", Sprite.WEST);
+                    guy.setPic("playerleft.png", Sprite.WEST);
                     guy.update();
                     keys[KeyEvent.VK_A] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_D]) {
                     guy.setDir(Sprite.EAST);
-                    guy.setPic("zombieright.png", Sprite.EAST);
+                    guy.setPic("playerright.png", Sprite.EAST);
                     guy.update();
                     keys[KeyEvent.VK_D] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_S]) {
                     guy.setDir(Sprite.SOUTH);
-                    guy.setPic("zombiefront.png", Sprite.SOUTH);
+                    guy.setPic("playerdown.png", Sprite.SOUTH);
                     guy.update();
                     keys[KeyEvent.VK_S] = false; //probably.
                 }
