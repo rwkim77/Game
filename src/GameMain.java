@@ -20,7 +20,7 @@ public class GameMain extends JPanel {
 
         theWorld.addSprite(new Guy());
 
-        theWorld.addSprite(new Zombie(10, 10, theWorld));
+//        theWorld.addSprite(new Zombie(10, 10, theWorld));
 
 
 
