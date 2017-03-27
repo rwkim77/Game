@@ -25,12 +25,11 @@ public class Zombie extends Chaser {
 
         if(!getTarget().equals(this) && !(getTarget() instanceof Zombie) && getTarget().intersects(this)){ //caught target
             Point loc = getTarget().getLoc(); //target's loc
-            getWorld().removeSprite(getTarget()); //remove old target
-            Chaser zombie = new Zombie(loc.x, loc.y, getWorld());
-            getWorld().addSprite(zombie); //replace old target with zombie
+//            getWorld().removeSprite(getTarget()); //remove old target
+//            Chaser zombie = new Zombie(loc.x, loc.y, getWorld());
+//            getWorld().addSprite(zombie); //replace old target with zombie
 
             //pick new target.  copied and pasted from Chaser constructor
-            pickTarget();
         }
 
         if(getTarget() instanceof Zombie){

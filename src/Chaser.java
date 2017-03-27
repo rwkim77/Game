@@ -32,8 +32,8 @@ public class Chaser extends Sprite {
     public Sprite getTarget(){
         return target;
     }
-    public void setTarget(Sprite newTarget){
-        target = newTarget;
+    public void setTarget(Sprite Guy){
+        target = Guy;
     }
 
     public void pickTarget(){

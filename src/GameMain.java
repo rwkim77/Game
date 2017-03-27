@@ -9,9 +9,9 @@ public class GameMain extends JPanel {
 
     private Timer timer;
     private boolean[] keys;
-    private Sprite guy;
+    private Sprite guy, zombie;
     private World theWorld;
-    private ArrayList<Sprite> zooombies;
+    private ArrayList<Zombie> zombies;
 
 
     public GameMain(){
@@ -22,11 +22,14 @@ public class GameMain extends JPanel {
 
         theWorld.addSprite(new Guy());
 
-        Zombie z = new Zombie(100,100,theWorld);
-        zooombies.add(z);
+        zombie = new Zombie(100,100,theWorld);
+
+        guy = new Guy();
+
+//        theWorld.addSprite(new Zombie(10, 10, theWorld));
 
 
-//p
+
         timer = new Timer(40, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -55,6 +58,7 @@ public class GameMain extends JPanel {
                     guy.update();
                     keys[KeyEvent.VK_S] = false; //probably.
                 }
+
 
                 //This will call update on each sprite.
                 repaint();
@@ -87,11 +91,9 @@ public class GameMain extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
 
-//        guy.draw(g2);
+        guy.draw(g2);
+        zombie.draw(g2);
 
-        for(Sprite s: zooombies){
-            s.draw(g2);
-        }
 
         //draw all the things.
 //        for(Sprite s: obstacles){
