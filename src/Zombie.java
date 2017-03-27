@@ -8,16 +8,16 @@ public class Zombie extends Chaser {
 
     public Zombie(int x, int y, World w){
         super(x, y, w); //should pick target and stuff.
-//        setPic("zombieright.png", EAST);
-//
-//        if (getDir() == NORTH)
-//            setPic("zombieback.png", NORTH);
-//        if (getDir() == EAST)
-//            setPic("zombieright.png", EAST);
-//        if (getDir() == SOUTH)
-//            setPic("zombiefront.png", SOUTH);
-//        if (getDir() == WEST)
-//            setPic("zombieleft.png", WEST);
+        setPic("zombieright.png", EAST);
+
+        if (getDir() == NORTH)
+            setPic("zombieback.png", NORTH);
+        if (getDir() == EAST)
+            setPic("zombieright.png", EAST);
+        if (getDir() == SOUTH)
+            setPic("zombiefront.png", SOUTH);
+        if (getDir() == WEST)
+            setPic("zombieleft.png", WEST);
     }
 
     @Override

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class GameMain extends JPanel {
 
@@ -10,6 +11,7 @@ public class GameMain extends JPanel {
     private boolean[] keys;
     private Sprite guy;
     private World theWorld;
+    private ArrayList<Sprite> zooombies;
 
 
     public GameMain(){
@@ -20,7 +22,8 @@ public class GameMain extends JPanel {
 
         theWorld.addSprite(new Guy());
 
-//        theWorld.addSprite(new Zombie(10, 10, theWorld));
+        Zombie z = new Zombie(100,100,theWorld);
+        zooombies.add(z);
 
 
 
@@ -84,8 +87,11 @@ public class GameMain extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
 
-        guy.draw(g2);
+//        guy.draw(g2);
 
+        for(Sprite s: zooombies){
+            s.draw(g2);
+        }
 
         //draw all the things.
 //        for(Sprite s: obstacles){
