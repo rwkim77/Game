@@ -26,7 +26,7 @@ public class GameMain extends JPanel {
         zooombies.add(z);
 
 
-
+//p
         timer = new Timer(40, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
