@@ -36,13 +36,9 @@ public class Chaser extends Sprite {
         target = Guy;
     }
 
-    public void pickTarget(){
-        ArrayList<Sprite> sprites = getWorld().getAllSprites();
-        target = sprites.get( (int)(Math.random()*sprites.size()) );
-        while(target.equals(this) && sprites.size() > 1){
-            target = sprites.get( (int)(Math.random()*sprites.size()) );
-        }
-    }
+
+
+
 
 }
 

@@ -9,9 +9,9 @@ public class GameMain extends JPanel {
 
     private Timer timer;
     private boolean[] keys;
-    private Sprite guy, zombie;
+    private Sprite guy;
     private World theWorld;
-    private ArrayList<Zombie> zombies;
+    private ArrayList<Sprite> zooombies;
 
 
     public GameMain(){
@@ -19,14 +19,12 @@ public class GameMain extends JPanel {
         keys = new boolean[512];
 
         theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
+        guy = new Guy();
 
         theWorld.addSprite(new Guy());
 
-        zombie = new Zombie(100,100,theWorld);
-
-        guy = new Guy();
-
-//        theWorld.addSprite(new Zombie(10, 10, theWorld));
+//        Zombie z = new Zombie(100,100,theWorld);
+//        zooombies.add(z);
 
 
 
@@ -34,29 +32,58 @@ public class GameMain extends JPanel {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                if (keys[KeyEvent.VK_W]) {
+                if (keys[KeyEvent.VK_W] && keys[KeyEvent.VK_D]) {
+                    guy.setDir(Sprite.NE);
+                    guy.setPic("playerupright.png", Sprite.NE);
+                    guy.update();
+//                    keys[KeyEvent.VK_W] = false;
+//                    keys[KeyEvent.VK_D] = false; //probably.
+                }
+                else if (keys[KeyEvent.VK_W] && keys[KeyEvent.VK_A]) {
+                    guy.setDir(Sprite.NW);
+                    guy.setPic("playerupleft.png", Sprite.NW);
+                    guy.update();
+//                    keys[KeyEvent.VK_W] = false;
+//                    keys[KeyEvent.VK_A] = false; //probably.
+                }
+                else if (keys[KeyEvent.VK_S] && keys[KeyEvent.VK_A]) {
+                    guy.setDir(Sprite.SW);
+                    guy.setPic("playerbottomleft.png", Sprite.SW);
+                    guy.update();
+//                    keys[KeyEvent.VK_S] = false;
+//                    keys[KeyEvent.VK_A] = false; //probably.
+                }
+                else if (keys[KeyEvent.VK_S] && keys[KeyEvent.VK_D]) {
+                    guy.setDir(Sprite.SE);
+                    guy.setPic("playerbottomright.png", Sprite.SE);
+                    guy.update();
+//                    keys[KeyEvent.VK_S] = false;
+//                    keys[KeyEvent.VK_D] = false; //probably.
+                }
+
+                else if (keys[KeyEvent.VK_W]) {
                     guy.setDir(Sprite.NORTH);
                     guy.setPic("playerup.png", Sprite.NORTH);
                     guy.update();
-                    keys[KeyEvent.VK_W] = false; //probably.
+//                    keys[KeyEvent.VK_W] = false; //probably.
                 }
-                if (keys[KeyEvent.VK_A]) {
+                else if (keys[KeyEvent.VK_A]) {
                     guy.setDir(Sprite.WEST);
                     guy.setPic("playerleft.png", Sprite.WEST);
                     guy.update();
-                    keys[KeyEvent.VK_A] = false; //probably.
+//                    keys[KeyEvent.VK_A] = false; //probably.
                 }
-                if (keys[KeyEvent.VK_D]) {
+                else if (keys[KeyEvent.VK_D]) {
                     guy.setDir(Sprite.EAST);
                     guy.setPic("playerright.png", Sprite.EAST);
                     guy.update();
-                    keys[KeyEvent.VK_D] = false; //probably.
+//                    keys[KeyEvent.VK_D] = false; //probably.
                 }
-                if (keys[KeyEvent.VK_S]) {
+                else if (keys[KeyEvent.VK_S]) {
                     guy.setDir(Sprite.SOUTH);
                     guy.setPic("playerdown.png", Sprite.SOUTH);
                     guy.update();
-                    keys[KeyEvent.VK_S] = false; //probably.
+//                    keys[KeyEvent.VK_S] = false; //probably.
                 }
 
 
@@ -91,9 +118,12 @@ public class GameMain extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
 
-        guy.draw(g2);
-        zombie.draw(g2);
 
+        guy.draw(g2);
+
+//        for(Sprite s: zooombies){
+//            s.draw(g2);
+//        }
 
         //draw all the things.
 //        for(Sprite s: obstacles){
