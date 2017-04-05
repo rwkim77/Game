@@ -15,6 +15,8 @@ public class Guy extends Sprite{
 
     @Override
     public void update(){
+
+
         super.update();
 
 

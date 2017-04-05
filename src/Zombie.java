@@ -4,10 +4,13 @@ import java.util.ArrayList;
 /**
  * Created by michael_hopps on 2/6/17.
  */
-public class Zombie extends Chaser {
+public class Zombie extends Sprite {
 
-    public Zombie(int x, int y, World w){
-        super(x, y, w); //should pick target and stuff.
+    private Sprite target;
+    private int lives;
+
+    public Zombie(int x, int y, Sprite target){
+        super(x, y, EAST); //should pick target and stuff.
         setPic("zombieright.png", EAST);
 
         if (getDir() == NORTH)
@@ -18,25 +21,39 @@ public class Zombie extends Chaser {
             setPic("zombiefront.png", SOUTH);
         if (getDir() == WEST)
             setPic("zombieleft.png", WEST);
+
+        this.target = target;
+        setSpeed(2);
+
+        setLoc(new Point(x, y));
     }
 
     @Override
     public void update(){
 
-        if(!getTarget().equals(this) && !(getTarget() instanceof Zombie) && getTarget().intersects(this)){ //caught target
-            Point loc = getTarget().getLoc(); //target's loc
-//            getWorld().removeSprite(getTarget()); //remove old target
-//            Chaser zombie = new Zombie(loc.x, loc.y, getWorld());
-//            getWorld().addSprite(zombie); //replace old target with zombie
+        int d = target.getDirection(this.getLoc(), target.getLoc());
 
-            //pick new target.  copied and pasted from Chaser constructor
-        }
+        this.setDir(d);
 
-        if(getTarget() instanceof Zombie){
-            setTarget(this);
-//            pickTarget();
-        }
+        setDir(d);
 
         super.update();
     }
+
+    public Sprite getTarget() {
+        return target;
+    }
+
+    public void setTarget(Sprite target) {
+        this.target = target;
+    }
+
+    public void getHit(){
+        lives--;
+    }
+    public int getLives(){
+        return lives;
+    }
+
 }
+

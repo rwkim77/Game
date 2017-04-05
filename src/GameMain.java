@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class GameMain extends JPanel {
@@ -11,7 +12,9 @@ public class GameMain extends JPanel {
     private boolean[] keys;
     private Sprite guy;
     private World theWorld;
-    private ArrayList<Sprite> zooombies;
+    private ArrayList<Sprite> bullets;
+    private ArrayList<Zombie> zooombies;
+    private int count = 0;
 
 
     public GameMain(){
@@ -20,11 +23,13 @@ public class GameMain extends JPanel {
 
         theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
         guy = new Guy();
+        zooombies = new ArrayList<Zombie>();
+        bullets = new ArrayList<Sprite>();
 
         theWorld.addSprite(new Guy());
 
-//        Zombie z = new Zombie(100,100,theWorld);
-//        zooombies.add(z);
+        Zombie z = new Zombie(100,100,guy);
+        zooombies.add(z);
 
 
 
@@ -85,6 +90,20 @@ public class GameMain extends JPanel {
                     guy.update();
 //                    keys[KeyEvent.VK_S] = false; //probably.
                 }
+                if (keys[KeyEvent.VK_SPACE]) {
+                    if (count % 5 == 0) {
+                        Shoot bullet = new Shoot(guy.getCenterPoint().x, guy.getCenterPoint().y, guy.getDir());
+                        bullets.add(bullet);
+                        bullet.setSpeed(12);
+
+                    }
+                }
+                for (Sprite b : bullets) {
+                    b.update();
+                }
+                for (Zombie z : zooombies) {
+                    z.update();
+                }
 
 
                 //This will call update on each sprite.
@@ -121,8 +140,12 @@ public class GameMain extends JPanel {
 
         guy.draw(g2);
 
-//        for(Sprite s: zooombies){
-//            s.draw(g2);
+        for (Zombie z : zooombies) {
+            z.draw(g2);
+        }
+        for (Sprite s:bullets) {
+            s.draw(g2);
+        }
 //        }
 
         //draw all the things.

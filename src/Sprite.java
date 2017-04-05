@@ -1,9 +1,8 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by michael_hopps on 2/13/17.
@@ -17,8 +16,9 @@ public class Sprite {
     private BufferedImage pic; //put the file in the res folder.
     private int speed; //Number of pixels moved each frame.
     private int id;
-    private World myWorld;
     public static final int NORTH = 90, SOUTH = 270, WEST = 180, EAST = 0, NE = 45, NW = 135, SW = 225, SE = 315;
+
+    private ArrayList<Sprite> sprites;
 
 
     public Sprite(int x, int y, int direction) {
@@ -54,6 +54,14 @@ public class Sprite {
         int dy = -(int) (Math.sin(Math.toRadians(dir)) * speed);
         loc.translate(dx, dy);
     }
+    public int getDirection(Point from, Point to){
+        double dx = to.x - from.x;
+        double dy = from.y - to.y;
+        int deg =  (int)Math.toDegrees(Math.atan(dy/dx));
+        if(to.x < from.x)
+            deg += 180;
+        return deg;
+    }
 
     /**
      * Changes the image file that this Sprite uses to draw.
@@ -68,12 +76,6 @@ public class Sprite {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    public World getWorld() {
-        return myWorld;
-    }
-    public void setMyWorld(World myWorld) {
-        this.myWorld = myWorld;
     }
 
     /**
@@ -222,16 +224,9 @@ public class Sprite {
         return speed;
     }
 
-    public void flipImageHoriz(){
-        AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
-        tx.translate(-getPic().getWidth(null), 0);
-        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
-        setPic(op.filter(getPic(), null));
-    }
-
-    public void resizeImage(int w, int h){
-//        setPic(getPic().getScaledInstance(w, h, BufferedImage.TYPE_INT_ARGB));
-//               BufferedImage b =  new BufferedImage()
+    public ArrayList<Sprite> getAllSprites(){
+        return sprites;
     }
 }
+
 
