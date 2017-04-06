@@ -13,14 +13,6 @@ public class Zombie extends Sprite {
         super(x, y, EAST); //should pick target and stuff.
         setPic("zombieright.png", EAST);
 
-        if (getDir() == NORTH)
-            setPic("zombieback.png", NORTH);
-        if (getDir() == EAST)
-            setPic("zombieright.png", EAST);
-        if (getDir() == SOUTH)
-            setPic("zombiefront.png", SOUTH);
-        if (getDir() == WEST)
-            setPic("zombieleft.png", WEST);
 
         this.target = target;
         setSpeed(2);
@@ -35,9 +27,25 @@ public class Zombie extends Sprite {
 
         this.setDir(d);
 
-        setDir(d);
+
+        if (getDir() <= NE && getDir() >= SE)
+        setPic("zombieright.png", EAST);
+
+        else if (getDir() > NE && getDir() < NW)
+            setPic("zombieback.png", NORTH);
+
+        else if (getDir() <= SE && getDir() >= SW)
+            setPic("zombiefront.png", SOUTH);
+
+        else if (getDir() >= NW && getDir() <= SW)
+            setPic("zombieleft.png", WEST);
 
         super.update();
+    }
+
+    public void draw(Graphics2D g2){
+
+        g2.drawImage(getPic(), getLoc().x, getLoc().y, null);
     }
 
     public Sprite getTarget() {

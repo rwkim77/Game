@@ -8,7 +8,8 @@ public class Guy extends Sprite{
     public Guy(){
         super(470, 250, NORTH);
         setPic("playerup.png", NORTH);
-        setSpeed(this.getBoundingRectangle().height / 20);
+        setSpeed(this.getBoundingRectangle().height / 15);
+
 
 
     }
@@ -21,6 +22,13 @@ public class Guy extends Sprite{
 
 
     }
+
+//    public void Shoot(){
+//        setDir(NORTH);
+//        setSpeed(5);
+//        setPic("playerleft.png", NORTH);
+//    }
+
 
 
 }

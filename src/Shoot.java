@@ -7,8 +7,8 @@ public class Shoot extends Sprite{
 
     public Shoot(int x, int y, int dir){
         super(x,y,dir);
-        setSpeed(10);
-        setPic("playerdown.png", WEST);
+        setSpeed(60);
+        setPic("bullet.png", NORTH);
         life=1;
 
 
